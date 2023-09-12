@@ -30,7 +30,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => {
                 {children}
               </div>
             </main>
-            <ToastContainer position="bottom-right" />
+            <ToastContainer position="top-center" />
           </StoreProvider>
         </div>
       </body>
