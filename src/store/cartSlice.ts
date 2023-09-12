@@ -10,7 +10,6 @@ interface CartState {
   items: ICartItem[];
   totalItems: number;
   totalPrice: number;
-  loading: boolean;
   openModal: boolean;
 }
 
@@ -27,7 +26,6 @@ const initialState = (): CartState => {
     items: [],
     totalItems: 0, // Track the total number of items in the cart
     totalPrice: 0,
-    loading: true,
     openModal: false,
   }; // Track the total purchase value}
   if (cartData) {
@@ -128,9 +126,6 @@ const cartSlice = createSlice({
       localStorage.setItem("cart", JSON.stringify(state));
     },
 
-    hideLoading: (state) => {
-      state.loading = false;
-    },
     setModalStatus: (state, action: PayloadAction<boolean>) => {
       state.openModal = action.payload;
       localStorage.setItem("cart", JSON.stringify(state));
@@ -142,7 +137,6 @@ export const {
   updateCart,
   removeFromCart,
   clearCart,
-  hideLoading,
   setModalStatus,
 } = cartSlice.actions;
 
